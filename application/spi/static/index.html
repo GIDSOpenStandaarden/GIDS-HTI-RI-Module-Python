@@ -1,0 +1,110 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2020 Headease B.V., This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+  -->
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>GIDS HTI Reference Implementation Module</title>
+    <meta name="description" content="GIDS HTI Reference Implementation Module">
+    <meta name="author" content="roland@edia.nl">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper indigo lighten-3">
+        <a href="#" class="brand-logo">Module</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col l10 offset-l1 s12">
+                <h2 class="center">GIDS HTI Reference Implementation Module</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card cyan lighten-1">
+                    <div class="card-content white-text">
+                        <span class="card-title content anonymous">Hallo anonieme gebruiker.</span>
+                        <span class="card-title content non-anonymous">Hallo, USER_NAME</span>
+                        <p class="content">Welkom bij de behandeling TREATMENT_NAME. We wensen je veel
+                            success met deze module.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card green lighten-3">
+                    <div class="card-content white-text">
+                        <span class="card-title content">TREATMENT_NAME</span>
+                        <p class="content">TREATMENT_DESCRIPTION</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row treatments">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+        </div>
+    </div>
+</div>
+
+<script src="js/materialize.min.js"></script>
+<script src="js/index.js"></script>
+<script type="application/javascript">
+  window.onload = () => {
+    const responseHandler = (response) => {
+      if (response.status === 403) {
+        window.location = '403.html'
+      }
+      return response.json();
+    }
+
+    fetch('/api/user/current?_t=' + new Date().getTime())
+      .then(responseHandler)
+      .then(data => {
+        if (data['anonymous']) {
+          let elements = document.querySelectorAll('.non-anonymous');
+          elements.forEach(element => {
+            element.parentElement.removeChild(element)
+          });
+        } else {
+          let elements = document.querySelectorAll('.anonymous');
+          elements.forEach(element => {
+            element.parentElement.removeChild(element)
+          });
+        }
+        let elements = document.querySelectorAll('.content');
+        elements.forEach(element => {
+          element.innerText = element.innerText.replace('USER_NAME', data['name'])
+        });
+      });
+    fetch('/api/treatment/current?_t=' + new Date().getTime())
+      .then(responseHandler)
+      .then(data => {
+        let elements = document.querySelectorAll('.content');
+        elements.forEach(element => {
+            element.innerText = element.innerText.replace('TREATMENT_NAME', data['name']);
+            element.innerText = element.innerText.replace('TREATMENT_DESCRIPTION', data['description']);
+          }
+        );
+      });
+  }
+</script>
+</body>
+</html>

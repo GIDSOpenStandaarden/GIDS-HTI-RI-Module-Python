@@ -1,0 +1,13 @@
+treatments:
+  - id: 1
+    name: Alcohol & ik
+    description: "Een glas wijn bij het eten, een biertje op zijn tijd: we drinken bijna allemaal wel eens alcohol. We staan er niet altijd bij stil hoeveel we eigenlijk drinken. En of dat binnen een gezonde levensstijl past"
+  - id: 2
+    name: Fearfighter
+    description: "Heb je een fobie, angststoornis, of paniekstoornis dan werk je hieraan met FearFighter. Het helpt je te leren leven met waar je bang voor bent of van in paniek raakt. Je werkt stap voor stap toe naar het zien waar je angstig voor bent. Dit gebeurt in een voor jou veilige omgeving, namelijk achter de computer. Voor, tijdens en na het zien van waar je angst voor hebt, helpt het programma je om dit te kunnen doorstaan. FearFighter is gebaseerd op cognitieve gedragstherapie. In het programma bekijk je video’s en animaties, maak je oefeningen en lees je teksten."
+  - id: 3
+    name: Angst en paniek
+    description: Heeft u last van angstklachten en wilt u daar graag iets aan doen, maar wilt of durft u geen (professionele) hulp te zoeken? Volg de gratis en anonieme online module. Het doel van deze online module is het trainen van vaardigheden om angst en paniekklachten te overwinnen of ze de baas te blijven. Om je klachten te verminderen is het belangrijk dat je begrijpt waar je last van hebt. We geven daarom informatie over angst, paniek en stress. Daarnaast heb je via een speciale berichtenfunctie anoniem contact met een zorgprofessional van Indigo voor al je vragen en advies.
+  - id: 4
+    name: Somber?
+    description: Voel jij je vaak somber en neerslachtig en wil je daar graag iets aan doen, maar wil of durf je geen (professionele) hulp te zoeken? De online module Depressie bevat informatie, tips, oefeningen en verhalen van ervaringsdeskundigen, waarmee je zelf op elk moment aan de slag kunt. Daarnaast heb je via een speciale berichtenfunctie anoniem contact met een zorgprofessional van Indigo voor al je vragen en advies.
