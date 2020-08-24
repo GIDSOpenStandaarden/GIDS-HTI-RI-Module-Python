@@ -12,7 +12,7 @@ import traceback
 from flask import Flask, jsonify
 from jose.exceptions import JWTClaimsError
 
-from application import hti, spi, user, treatment
+from application import hti, spi, user, treatment, health
 from application.database import db
 from application.security import AccessDenied
 
@@ -32,7 +32,7 @@ def create_app(config=None) -> Flask:
         app.config.from_mapping(config)
     if 'APP_SECRET_KEY' in app.config:
         app.secret_key = app.config['APP_SECRET_KEY']
-    _, blueprint_spi, _, _ = register_blueprints(app)
+    _, blueprint_spi, _, _, _ = register_blueprints(app)
     register_error_handlers(app, blueprint_spi)
     setup_database(app)
 
@@ -94,5 +94,7 @@ def register_blueprints(app: Flask):
     app.register_blueprint(blueprint_user)
     blueprint_treatment = treatment.views.create_blueprint()
     app.register_blueprint(blueprint_treatment)
+    blueprint_health = health.views.create_blueprint()
+    app.register_blueprint(blueprint_health)
 
-    return blueprint_hti, blueprint_spi, blueprint_user, blueprint_treatment
+    return blueprint_hti, blueprint_spi, blueprint_user, blueprint_treatment, blueprint_health
