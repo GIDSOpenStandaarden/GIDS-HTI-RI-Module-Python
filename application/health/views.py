@@ -1,7 +1,10 @@
-#  Copyright (c) 2020 Headease B.V., This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+"""
+The view objects for this module.
+"""
 from flask import Blueprint, jsonify
 
 
+# pylint: disable=W0612
 def create_blueprint() -> Blueprint:
     """
     Blueprint init method.
@@ -11,6 +14,10 @@ def create_blueprint() -> Blueprint:
 
     @blueprint.route('/health')
     def health():
+        """
+        The status of the application for health check purposes.
+        :return: JSON map of the status.
+        """
         return jsonify({'status': 'OK'})
 
     return blueprint
