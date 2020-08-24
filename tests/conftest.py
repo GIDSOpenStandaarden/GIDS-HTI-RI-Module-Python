@@ -16,8 +16,7 @@ def app():
     """
     from application.database import db
     app = create_app({"TESTING": True,
-                      "SQLALCHEMY_DATABASE_URI": ''
-                                                 '',
+                      "SQLALCHEMY_DATABASE_URI": 'sqlite:///:memory:',
                       'SECRET_KEY': 's3cr3t!',
                       'SQLALCHEMY_ECHO': False,
                       'HTI_ALLOWED_PORTALS': 'https://localhost:8080',
