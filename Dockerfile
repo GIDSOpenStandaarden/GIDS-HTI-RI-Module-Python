@@ -1,8 +1,6 @@
 FROM python:3.8
 ENV TZ="Europe/Amsterdam"
 
-ADD pip.conf /etc/pip.conf
-
 ADD requirements*.txt /
 RUN pip install -r /requirements.txt
 
