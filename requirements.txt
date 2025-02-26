@@ -3,6 +3,6 @@ flask==1.1.2
 PyYAML==5.3.1
 pymysql==0.10.0
 waitress==1.4.4
-python-jose==3.3.0
+python-jose==3.4.0
 Flask-Classful==0.14.2
 Flask-SQLAlchemy==2.4.4
